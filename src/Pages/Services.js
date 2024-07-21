@@ -1,8 +1,10 @@
+// src/Pages/Services.js
 import React, { useState } from 'react';
+import { Container, Row, Col, Form } from 'react-bootstrap';
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 import ServiceCard from '../Components/ServiceCard';
-import { Container, Row, Col, Form } from 'react-bootstrap';
+import InquiryFormModal from '../Components/InquiryFormModal';
 
 const services = [
   { title: 'Chief Maid Daily Plan', description: 'Daily maid services for your home.', price: '$50/day', location: 'Kokapet' },
@@ -12,12 +14,23 @@ const services = [
 
 const Services = () => {
   const [selectedLocation, setSelectedLocation] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [selectedService, setSelectedService] = useState({});
 
   const handleLocationChange = (e) => {
     setSelectedLocation(e.target.value);
   };
 
-  const filteredServices = services.filter(service => 
+  const handleBookNow = (service) => {
+    setSelectedService(service);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  const filteredServices = services.filter(service =>
     !selectedLocation || service.location === selectedLocation
   );
 
@@ -41,12 +54,13 @@ const Services = () => {
         <Row>
           {filteredServices.map((service, index) => (
             <Col key={index} sm={12} md={6} lg={4}>
-              <ServiceCard {...service} />
+              <ServiceCard {...service} onBookNow={handleBookNow} />
             </Col>
           ))}
         </Row>
       </Container>
       <Footer />
+      <InquiryFormModal show={showModal} handleClose={handleCloseModal} service={selectedService} />
     </div>
   );
 };

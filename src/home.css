@@ -1,54 +1,89 @@
-.service-card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-  }
-  
-  .service-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .testimonials {
-    max-width: 90rem;
-    margin: auto;
-    padding: 3rem 4%;
-  }
-  
-  .course-swiper .swiper-slide {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .single-testimonial {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 2px solid #000;
-    border-radius: 2rem;
-    padding: 1.5rem;
-    text-align: center;
-  }
-  
-  .single-testimonial .message {
-    font-style: italic;
-    margin-bottom: 1rem;
-  }
-  
-  .single-testimonial .profile-text {
-    margin-top: auto;
-  }
-  
-  .single-testimonial .profile-name {
-    font-weight: bold;
-    margin: 0;
-  }
-  
-  @media (max-width: 768px) {
-    .testimonials {
-      padding: 4vh 0;
-    }
-  
-    .course-swiper .swiper-slide {
-      width: 90%;
-    }
-  }
-  
+/* General styles */
+/* General styles */
+body {
+  font-family: 'Roboto', sans-serif; /* Example: Using Google Font Roboto */
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the body fills the viewport height */
+}
+
+/* Container styles */
+.container {
+  flex: 1; /* Use flex-grow to fill remaining vertical space */
+  max-width: 1200px;
+  margin: auto; /* Center the container horizontally */
+}
+
+/* Header styles */
+header {
+  background-color: #343a40;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+/* Footer styles */
+footer {
+  background-color: #343a40;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+  margin-top: auto; /* Push the footer to the bottom */
+  width: 100%;
+}
+
+/* Section title styles */
+h2 {
+  margin-bottom: 2rem;
+  color: #343a40;
+  font-weight: bold;
+}
+
+/* Service card styles */
+.service-card,
+.testimonial-card,
+.step-card,
+.city-card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.service-card:hover,
+.testimonial-card:hover,
+.step-card:hover,
+.city-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-card .card-title,
+.step-card .step h5 {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.service-card .card-text,
+.testimonial-card .card-text,
+.step-card .step p {
+  color: #6c757d;
+}
+
+.testimonial-card .card-subtitle {
+  color: #007bff;
+}
+
+/* Button styles */
+button {
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
